@@ -1,0 +1,7 @@
+# Tracing options for the diagrama-concreto.diagram plug-in
+
+# Common issues
+diagrama-concreto.diagram/debug=false
+
+# Visual IDs
+diagrama-concreto.diagram/debug/visualID=false

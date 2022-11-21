@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/abstracta_relacional/src" modelPluginID="abstracta_relacional"
+    modelName="Abstracta_relacional" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
+  <foreignModel>abstracta.emf</foreignModel>
+  <genPackages prefix="Abstracta_relacional" disposableProviderFactory="true" ecorePackage="abstracta.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="abstracta.ecore#//Type">
+      <genEnumLiterals ecoreEnumLiteral="abstracta.ecore#//Type/varchar"/>
+      <genEnumLiterals ecoreEnumLiteral="abstracta.ecore#//Type/number"/>
+      <genEnumLiterals ecoreEnumLiteral="abstracta.ecore#//Type/int"/>
+      <genEnumLiterals ecoreEnumLiteral="abstracta.ecore#//Type/float"/>
+      <genEnumLiterals ecoreEnumLiteral="abstracta.ecore#//Type/date"/>
+      <genEnumLiterals ecoreEnumLiteral="abstracta.ecore#//Type/boolean"/>
+    </genEnums>
+    <genClasses ecoreClass="abstracta.ecore#//ModelFactory">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstracta.ecore#//ModelFactory/lstSchema"/>
+    </genClasses>
+    <genClasses ecoreClass="abstracta.ecore#//Schema">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//Schema/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//Schema/user"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//Schema/password"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstracta.ecore#//Schema/listTables"/>
+    </genClasses>
+    <genClasses ecoreClass="abstracta.ecore#//Table">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//Table/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstracta.ecore#//Table/primaryKey"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstracta.ecore#//Table/listRelations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstracta.ecore#//Table/listColumns"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstracta.ecore#//Table/listTriggers"/>
+    </genClasses>
+    <genClasses ecoreClass="abstracta.ecore#//Column">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//Column/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//Column/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//Column/is_not_null"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//Column/auto_increment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//Column/data_default"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//Column/is_unique"/>
+    </genClasses>
+    <genClasses ecoreClass="abstracta.ecore#//Relation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//Relation/nameSource"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//Relation/nameTarget"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//Relation/multiplicidadSource"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//Relation/multiplicidadTarget"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference abstracta.ecore#//Relation/tableSource"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference abstracta.ecore#//Relation/tableTarget"/>
+    </genClasses>
+    <genClasses ecoreClass="abstracta.ecore#//Trigger">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//Trigger/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//Trigger/momentType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//Trigger/actionType"/>
+    </genClasses>
+    <genClasses ecoreClass="abstracta.ecore#//PrimaryKey">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference abstracta.ecore#//PrimaryKey/columna"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

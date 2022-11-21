@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated abstracta -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="abstracta_relacional.presentation.Abstracta_relacionalModelWizardID"
+            name="%_UI_Abstracta_relacionalModelWizard_label"
+            class="abstracta_relacional.presentation.Abstracta_relacionalModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/Abstracta_relacionalModelFile.gif">
+         <description>%_UI_Abstracta_relacionalModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated abstracta -->
+      <editor
+            id="abstracta_relacional.presentation.Abstracta_relacionalEditorID"
+            name="%_UI_Abstracta_relacionalEditor_label"
+            icon="icons/full/obj16/Abstracta_relacionalModelFile.gif"
+            extensions="abstracta_relacional"
+            class="abstracta_relacional.presentation.Abstracta_relacionalEditor"
+            contributorClass="abstracta_relacional.presentation.Abstracta_relacionalActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

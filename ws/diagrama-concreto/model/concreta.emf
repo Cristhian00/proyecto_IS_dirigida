@@ -1,0 +1,156 @@
+@namespace(uri="diagrama_concreta", prefix="diagrama_concreta")
+@gmf
+package diagrama_concreta;
+
+@gmf.diagram
+class TCDDiagramaClases {
+    val TCDClase[*] listaClases;
+    val TCDRelacion[*] listaRelaciones;
+    val TCDPaquete[*] listaPaquetes;
+    
+    attr String nombre;
+}
+
+class ModelFactory {
+	attr String nombre;
+	attr String ruta;
+	val TCDDiagramaClases[*] listaDiagramas;
+}
+
+@gmf.node(label = "nombre", color = "255,252,142")
+class TCDPaquete {
+	val TCDPaquete[*] listaPaquetes;
+	
+	attr String nombre;
+	attr String ruta;
+}
+
+@gmf.node(label = "nombre", color = "227,255,248")
+class TCDClase {
+    @gmf.compartment
+    val TCDAtributo[*] listaAtributos;
+    @gmf.compartment
+    val TCDMetodo[*] listaMetodos;
+    
+   
+    attr String nombre;
+    attr String estereotipo;
+    attr boolean isAbstract;
+    attr String documentacion;
+    attr String ruta;
+}
+
+@gmf.link
+abstract class TCDRelacion {
+    ref TCDClase source;
+    ref TCDClase target;
+}
+
+enum Navegavilidad {
+	Bidireccional;
+	Unidireccional;
+}
+
+@gmf.link(source="source", target="target", style="solid", width="3", color = "39,174,96",
+	source.decoration = "rhomb", label = "nombreDestino, multiplicidadDestino", label.pattern = "{0}  {1}")
+class TCDAgregacion extends TCDRelacion{
+	
+	attr String nombreOrigen;
+    attr String nombreDestino;
+    attr Multiplicidad multiplicidadOrigen;
+    attr Multiplicidad multiplicidadDestino;
+    attr Navegavilidad navegavilidad;
+}
+
+@gmf.link(source="source", target="target", style="solid", width="3", color = "0,62,255", 
+	label = "nombreDestino, multiplicidadDestino", label.pattern = "{0}  {1}")
+class TCDAsociacion extends TCDRelacion{
+	
+	attr String nombreOrigen;
+    attr String nombreDestino;
+    attr Multiplicidad multiplicidadOrigen;
+    attr Multiplicidad multiplicidadDestino;
+    attr Navegavilidad navegavilidad;
+}
+
+@gmf.link(source="source", target="target", label = "nombreDestino, multiplicidadDestino", label.pattern = "{0}  {1}",
+	style="dash", width="3", color = "0,255,193", source.decoration = "rhomb")
+class TCDComposicion extends TCDRelacion{
+	
+	attr String nombreOrigen;
+    attr String nombreDestino;
+    attr Multiplicidad multiplicidadOrigen;
+    attr Multiplicidad multiplicidadDestino;
+    attr Navegavilidad navegavilidad;
+}
+
+@gmf.link(source="source", target="target", label = "nombreDestino, multiplicidadDestino", 
+	style="solid", width="3", label.pattern = "{0}  {1}", color = "255,15,15", source.decoration = "filledrhomb")
+class TCDDependencia extends TCDRelacion{
+	
+	attr String nombreOrigen;
+    attr String nombreDestino;
+    attr Multiplicidad multiplicidadOrigen;
+    attr Multiplicidad multiplicidadDestino;
+    attr Navegavilidad navegavilidad;
+}
+
+@gmf.link(source="source", target="target", style="solid", width="3", color = "4,255,0", source.decoration = "closedarrow")
+class TCDHerencia extends TCDRelacion{
+	
+}
+
+enum Multiplicidad {
+	_1;
+	_0_1;
+	_0_n;
+	_1_n;
+}
+
+@gmf.node(label = "nombre, tipoDato", color = "215,255,242", label.pattern = "{0}: {1}", size = "150,16", border = null)
+class TCDAtributo {
+	attr String nombre;
+	attr TipoDato tipoDato;
+	attr Visibilidad visibilidad;
+	attr String valorDefecto;
+	
+	val class_identifier[*] identificadores;
+}
+
+@gmf.node()
+class class_identifier {
+	ref TCDAtributo identificador;
+}
+
+enum TipoDato {
+	string;
+	number;
+	boolean;
+}
+
+enum Visibilidad {
+	public;
+	private;
+	protected;
+	Readonly;
+}
+
+@gmf.node(label = "nombre, tipoRetorno", label.pattern = "{0}: {1}", border.style = "dot", 
+	color = "255,253,188", size = "150,16", size.maximum = "200,16")
+class TCDMetodo {
+	@gmf.comparment
+    attr String[*] listaParametros;
+	
+	attr String nombre;
+	attr Visibilidad modificadorAcceso;
+	attr TipoRetorno tipoRetorno;
+	attr String semantica;
+}
+
+enum TipoRetorno {
+	undefined;
+	string;
+	number;
+	boolean;
+	Void;
+}

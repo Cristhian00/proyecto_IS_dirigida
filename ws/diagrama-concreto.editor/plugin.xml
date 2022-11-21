@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated concreta -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="diagrama_concreta.presentation.Diagrama_concretaModelWizardID"
+            name="%_UI_Diagrama_concretaModelWizard_label"
+            class="diagrama_concreta.presentation.Diagrama_concretaModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/Diagrama_concretaModelFile.gif">
+         <description>%_UI_Diagrama_concretaModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated concreta -->
+      <editor
+            id="diagrama_concreta.presentation.Diagrama_concretaEditorID"
+            name="%_UI_Diagrama_concretaEditor_label"
+            icon="icons/full/obj16/Diagrama_concretaModelFile.gif"
+            extensions="diagrama_concreta"
+            class="diagrama_concreta.presentation.Diagrama_concretaEditor"
+            contributorClass="diagrama_concreta.presentation.Diagrama_concretaActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

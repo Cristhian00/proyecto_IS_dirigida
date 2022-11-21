@@ -1,0 +1,139 @@
+@namespace(uri="abstracta", prefix="abstracta")
+@gmf
+package abstracta;
+
+class ModelFactory {
+	attr String nombre;
+	attr String ruta;
+	
+	val TCDPaquete[*] listaPaquetes;
+	ref TCDClase[*] listaTodasClases;
+	ref TCDPaquete[*] listaTodosPaquetes;
+}
+
+class TCDPaquete {
+    val TCDClase[*] listaClases;
+    val TCDPaquete[*] listapaquetes;
+    
+    attr String nombre;
+    attr String ruta;
+}
+
+class TCDClase {
+    val TCDAtributo[*] listaAtributos;
+    val TCDMetodo[*] listaMetodos;
+    val TCDRelacion[*] listaRelaciones;
+    val TCDClass_identifier[*] identificadores;
+    
+    attr String nombre;
+    attr String estereotipo;
+    attr boolean isAbstract;
+    attr String documentacion;
+    attr String ruta;
+}
+
+class TCDAtributo {
+    attr String nombre;
+	attr TipoDato tipoDato;
+	attr Visibilidad visibilidad;
+	attr String valorDefecto;
+	attr boolean isUnique;
+}
+
+@gmf.node()
+class TCDClass_identifier {
+	ref TCDAtributo identificador;
+}
+
+class TCDMetodo {
+    attr String[*] listaParametros;
+	
+	attr String nombre;
+	attr Visibilidad modificadorAcceso;
+	attr TipoRetorno tipoRetorno;
+	attr String semantica;
+}
+
+abstract class TCDRelacion {
+    ref TCDClase source;
+    ref TCDClase target;
+}
+
+class TCDAsociacion extends TCDRelacion{
+	
+	attr String nombreOrigen;
+    attr String nombreDestino;
+    attr Multiplicidad multiplicidadOrigen;
+    attr Multiplicidad multiplicidadDestino;
+    attr Navegavilidad navegavilidad;
+}
+
+class TCDComposicion extends TCDRelacion{
+	
+	attr String nombreOrigen;
+    attr String nombreDestino;
+    attr Multiplicidad multiplicidadOrigen;
+    attr Multiplicidad multiplicidadDestino;
+    attr Navegavilidad navegavilidad;
+}
+
+class TCDDependencia extends TCDRelacion{
+	
+	attr String nombreOrigen;
+    attr String nombreDestino;
+    attr Multiplicidad multiplicidadOrigen;
+    attr Multiplicidad multiplicidadDestino;
+    attr Navegavilidad navegavilidad;
+}
+
+class TCDHerencia extends TCDRelacion{
+	
+}
+
+class TCDAgregacion extends TCDRelacion{
+	
+	attr String nombreOrigen;
+    attr String nombreDestino;
+    attr Multiplicidad multiplicidadOrigen;
+    attr Multiplicidad multiplicidadDestino;
+    attr Navegavilidad navegavilidad;
+}
+
+class TCDParametro {
+    attr String nombre;
+	attr TipoDato tipoDato;
+}
+
+enum Visibilidad {
+	public;
+	private;
+	protected;
+	Readonly;
+}
+
+enum TipoDato {
+	string;
+	number;
+	boolean;
+}
+
+enum Multiplicidad {
+	_1;
+	_0_1;
+	_0_n;
+	_1_n;
+}
+
+enum TipoRetorno {
+	undefined;
+	string;
+	number;
+	boolean;
+	Void;
+}
+
+enum Navegavilidad {
+	Bidireccional;
+	Unidireccional;
+	None;
+}

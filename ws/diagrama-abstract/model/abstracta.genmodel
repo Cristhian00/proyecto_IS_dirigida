@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/diagrama-abstract/src" modelPluginID="diagrama-abstract"
+    modelName="Abstracta" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
+  <foreignModel>abstracta.emf</foreignModel>
+  <genPackages prefix="Abstracta" disposableProviderFactory="true" ecorePackage="abstracta.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="abstracta.ecore#//Visibilidad">
+      <genEnumLiterals ecoreEnumLiteral="abstracta.ecore#//Visibilidad/public"/>
+      <genEnumLiterals ecoreEnumLiteral="abstracta.ecore#//Visibilidad/private"/>
+      <genEnumLiterals ecoreEnumLiteral="abstracta.ecore#//Visibilidad/protected"/>
+      <genEnumLiterals ecoreEnumLiteral="abstracta.ecore#//Visibilidad/Readonly"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="abstracta.ecore#//TipoDato">
+      <genEnumLiterals ecoreEnumLiteral="abstracta.ecore#//TipoDato/string"/>
+      <genEnumLiterals ecoreEnumLiteral="abstracta.ecore#//TipoDato/number"/>
+      <genEnumLiterals ecoreEnumLiteral="abstracta.ecore#//TipoDato/boolean"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="abstracta.ecore#//Multiplicidad">
+      <genEnumLiterals ecoreEnumLiteral="abstracta.ecore#//Multiplicidad/_1"/>
+      <genEnumLiterals ecoreEnumLiteral="abstracta.ecore#//Multiplicidad/_0_1"/>
+      <genEnumLiterals ecoreEnumLiteral="abstracta.ecore#//Multiplicidad/_0_n"/>
+      <genEnumLiterals ecoreEnumLiteral="abstracta.ecore#//Multiplicidad/_1_n"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="abstracta.ecore#//TipoRetorno">
+      <genEnumLiterals ecoreEnumLiteral="abstracta.ecore#//TipoRetorno/undefined"/>
+      <genEnumLiterals ecoreEnumLiteral="abstracta.ecore#//TipoRetorno/string"/>
+      <genEnumLiterals ecoreEnumLiteral="abstracta.ecore#//TipoRetorno/number"/>
+      <genEnumLiterals ecoreEnumLiteral="abstracta.ecore#//TipoRetorno/boolean"/>
+      <genEnumLiterals ecoreEnumLiteral="abstracta.ecore#//TipoRetorno/Void"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="abstracta.ecore#//Navegavilidad">
+      <genEnumLiterals ecoreEnumLiteral="abstracta.ecore#//Navegavilidad/Bidireccional"/>
+      <genEnumLiterals ecoreEnumLiteral="abstracta.ecore#//Navegavilidad/Unidireccional"/>
+      <genEnumLiterals ecoreEnumLiteral="abstracta.ecore#//Navegavilidad/None"/>
+    </genEnums>
+    <genClasses ecoreClass="abstracta.ecore#//ModelFactory">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//ModelFactory/nombre"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//ModelFactory/ruta"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstracta.ecore#//ModelFactory/listaPaquetes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference abstracta.ecore#//ModelFactory/listaTodasClases"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference abstracta.ecore#//ModelFactory/listaTodosPaquetes"/>
+    </genClasses>
+    <genClasses ecoreClass="abstracta.ecore#//TCDPaquete">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstracta.ecore#//TCDPaquete/listaClases"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstracta.ecore#//TCDPaquete/listapaquetes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDPaquete/nombre"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDPaquete/ruta"/>
+    </genClasses>
+    <genClasses ecoreClass="abstracta.ecore#//TCDClase">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstracta.ecore#//TCDClase/listaAtributos"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstracta.ecore#//TCDClase/listaMetodos"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstracta.ecore#//TCDClase/listaRelaciones"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstracta.ecore#//TCDClase/identificadores"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDClase/nombre"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDClase/estereotipo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDClase/isAbstract"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDClase/documentacion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDClase/ruta"/>
+    </genClasses>
+    <genClasses ecoreClass="abstracta.ecore#//TCDAtributo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDAtributo/nombre"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDAtributo/tipoDato"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDAtributo/visibilidad"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDAtributo/valorDefecto"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDAtributo/isUnique"/>
+    </genClasses>
+    <genClasses ecoreClass="abstracta.ecore#//TCDClass_identifier">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference abstracta.ecore#//TCDClass_identifier/identificador"/>
+    </genClasses>
+    <genClasses ecoreClass="abstracta.ecore#//TCDMetodo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDMetodo/listaParametros"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDMetodo/nombre"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDMetodo/modificadorAcceso"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDMetodo/tipoRetorno"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDMetodo/semantica"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="abstracta.ecore#//TCDRelacion">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference abstracta.ecore#//TCDRelacion/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference abstracta.ecore#//TCDRelacion/target"/>
+    </genClasses>
+    <genClasses ecoreClass="abstracta.ecore#//TCDAsociacion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDAsociacion/nombreOrigen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDAsociacion/nombreDestino"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDAsociacion/multiplicidadOrigen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDAsociacion/multiplicidadDestino"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDAsociacion/navegavilidad"/>
+    </genClasses>
+    <genClasses ecoreClass="abstracta.ecore#//TCDComposicion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDComposicion/nombreOrigen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDComposicion/nombreDestino"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDComposicion/multiplicidadOrigen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDComposicion/multiplicidadDestino"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDComposicion/navegavilidad"/>
+    </genClasses>
+    <genClasses ecoreClass="abstracta.ecore#//TCDDependencia">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDDependencia/nombreOrigen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDDependencia/nombreDestino"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDDependencia/multiplicidadOrigen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDDependencia/multiplicidadDestino"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDDependencia/navegavilidad"/>
+    </genClasses>
+    <genClasses ecoreClass="abstracta.ecore#//TCDHerencia"/>
+    <genClasses ecoreClass="abstracta.ecore#//TCDAgregacion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDAgregacion/nombreOrigen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDAgregacion/nombreDestino"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDAgregacion/multiplicidadOrigen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDAgregacion/multiplicidadDestino"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDAgregacion/navegavilidad"/>
+    </genClasses>
+    <genClasses ecoreClass="abstracta.ecore#//TCDParametro">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDParametro/nombre"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstracta.ecore#//TCDParametro/tipoDato"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

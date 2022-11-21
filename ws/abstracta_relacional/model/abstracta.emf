@@ -1,0 +1,68 @@
+@namespace(	uri="http://abstracta_relacional",	prefix="abstracta_relacional")
+package abstracta_relacional;
+
+class ModelFactory {
+	 val Schema[*] lstSchema;
+}
+
+@gmf.diagram
+class Schema {
+	attr String name;
+	attr String user;
+	attr String password;
+
+    val Table[*] listTables;
+}
+
+@gmf.node(label = "name")
+class Table {
+	attr String name;
+
+	val PrimaryKey[*] primaryKey;
+
+	val Relation[*] listRelations;
+	val Column[*] listColumns;
+	val Trigger[*] listTriggers;
+}
+
+@gmf.node(label = "name")
+class Column {
+	attr Type type;
+	attr String name;
+	attr boolean is_not_null;
+	attr boolean auto_increment;
+	attr String data_default;
+	attr boolean is_unique;
+}
+
+@gmf.node(label = "nameTarget")
+class Relation {
+	attr String nameSource;
+	attr String nameTarget;
+	attr String multiplicidadSource;
+	attr String multiplicidadTarget;
+
+	ref Table tableSource;
+	ref Table tableTarget;
+}
+
+@gmf.node(label = "name")
+class Trigger {
+	attr String name;
+	attr String momentType;
+	attr String actionType;
+}
+
+@gmf.node()
+class PrimaryKey {
+	ref Column columna;
+}
+
+enum Type {
+	varchar;
+	number;
+	int;
+	float;
+	date;
+	boolean;
+}

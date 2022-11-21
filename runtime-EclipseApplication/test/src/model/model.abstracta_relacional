@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ASCII"?>
+<abstracta_relacional:ModelFactory xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:abstracta_relacional="http://abstracta_relacional">
+  <lstSchema name="Universidad" user="root" password="admin">
+    <listTables name="Bienestar">
+      <primaryKey columna="//@lstSchema.0/@listTables.0/@listColumns.1"/>
+      <listColumns name="codigo" data_default=""/>
+      <listColumns type="int" name="id" is_not_null="true" auto_increment="true" is_unique="true"/>
+    </listTables>
+    <listTables name="Credito">
+      <primaryKey columna="//@lstSchema.0/@listTables.1/@listColumns.3"/>
+      <listRelations nameSource="creditos" nameTarget="bienestar" multiplicidadSource="*" multiplicidadTarget="1" tableSource="//@lstSchema.0/@listTables.1" tableTarget="//@lstSchema.0/@listTables.0"/>
+      <listColumns type="int" name="codigo"/>
+      <listColumns name="nombre"/>
+      <listColumns name="horario"/>
+      <listColumns type="int" name="id" is_not_null="true" auto_increment="true" is_unique="true"/>
+      <listColumns type="int" name="bienestar_id" is_not_null="true" auto_increment="true" is_unique="true"/>
+    </listTables>
+    <listTables name="Persona">
+      <primaryKey columna="//@lstSchema.0/@listTables.2/@listColumns.3"/>
+      <listRelations nameSource="personas" nameTarget="bienestar" multiplicidadSource="*" multiplicidadTarget="1" tableSource="//@lstSchema.0/@listTables.2" tableTarget="//@lstSchema.0/@listTables.0"/>
+      <listColumns type="int" name="cedula"/>
+      <listColumns name="nombre" data_default=""/>
+      <listColumns name="correo"/>
+      <listColumns type="int" name="id" is_not_null="true" auto_increment="true" is_unique="true"/>
+      <listColumns type="int" name="bienestar_id" is_not_null="true" auto_increment="true" is_unique="true"/>
+    </listTables>
+    <listTables name="Instructor">
+      <primaryKey columna="//@lstSchema.0/@listTables.3/@listColumns.3"/>
+      <listColumns type="int" name="salario"/>
+      <listColumns name="cargo"/>
+      <listColumns type="boolean" name="isActivo"/>
+      <listColumns type="int" name="id" is_not_null="true" auto_increment="true" is_unique="true"/>
+      <listColumns type="int" name="foreign_id_Persona" is_not_null="true" auto_increment="true" is_unique="true"/>
+    </listTables>
+    <listTables name="Estudiante">
+      <primaryKey columna="//@lstSchema.0/@listTables.4/@listColumns.2"/>
+      <listColumns name="facultad"/>
+      <listColumns name="programa"/>
+      <listColumns type="int" name="id" is_not_null="true" auto_increment="true" is_unique="true"/>
+      <listColumns type="int" name="foreign_id_Persona" is_not_null="true" auto_increment="true" is_unique="true"/>
+    </listTables>
+    <listTables name="AsigCreditoEst">
+      <primaryKey columna="//@lstSchema.0/@listTables.5/@listColumns.2"/>
+      <listRelations nameSource="asignaciones" nameTarget="horario" multiplicidadSource="*" multiplicidadTarget="1" tableSource="//@lstSchema.0/@listTables.5" tableTarget="//@lstSchema.0/@listTables.12"/>
+      <listRelations nameSource="asignaciones" nameTarget="estudiante" multiplicidadSource="*" multiplicidadTarget="1" tableSource="//@lstSchema.0/@listTables.5" tableTarget="//@lstSchema.0/@listTables.4"/>
+      <listColumns name="fechaAsig"/>
+      <listColumns type="boolean" name="estado"/>
+      <listColumns type="int" name="id" is_not_null="true" auto_increment="true" is_unique="true"/>
+      <listColumns type="int" name="horario_id" is_not_null="true" auto_increment="true" is_unique="true"/>
+      <listColumns type="int" name="estudiante_id" is_not_null="true" auto_increment="true" is_unique="true"/>
+    </listTables>
+    <listTables name="Lugar">
+      <primaryKey columna="//@lstSchema.0/@listTables.6/@listColumns.1"/>
+      <listRelations nameSource="lugares" nameTarget="bienestar" multiplicidadSource="*" multiplicidadTarget="1" tableSource="//@lstSchema.0/@listTables.6" tableTarget="//@lstSchema.0/@listTables.0"/>
+      <listColumns name="nombre" data_default=""/>
+      <listColumns type="int" name="id" is_not_null="true" auto_increment="true" is_unique="true"/>
+      <listColumns type="int" name="bienestar_id" is_not_null="true" auto_increment="true" is_unique="true"/>
+    </listTables>
+    <listTables name="ClaseTest1">
+      <primaryKey columna="//@lstSchema.0/@listTables.7/@listColumns.0"/>
+      <listColumns type="int" name="id" is_not_null="true" auto_increment="true" is_unique="true"/>
+    </listTables>
+    <listTables name="ClaseTest2">
+      <primaryKey columna="//@lstSchema.0/@listTables.8/@listColumns.0"/>
+      <listRelations nameSource="listTest2" nameTarget="ClaseTest1" multiplicidadSource="*" multiplicidadTarget="1" tableSource="//@lstSchema.0/@listTables.8" tableTarget="//@lstSchema.0/@listTables.7"/>
+      <listRelations nameSource="claseTest2" nameTarget="testPrueba" multiplicidadSource="1" multiplicidadTarget="1" tableSource="//@lstSchema.0/@listTables.8" tableTarget="//@lstSchema.0/@listTables.13"/>
+      <listColumns type="int" name="id" is_not_null="true" auto_increment="true" is_unique="true"/>
+      <listColumns type="int" name="clasetest1_id" is_not_null="true" auto_increment="true" is_unique="true"/>
+      <listColumns type="int" name="testprueba_id" is_not_null="true" auto_increment="true" is_unique="true"/>
+    </listTables>
+    <listTables name="Academico">
+      <primaryKey columna="//@lstSchema.0/@listTables.9/@listColumns.1"/>
+      <listColumns name="duracion"/>
+      <listColumns type="int" name="id" is_not_null="true" auto_increment="true" is_unique="true"/>
+      <listColumns type="int" name="foreign_id_Credito" is_not_null="true" auto_increment="true" is_unique="true"/>
+    </listTables>
+    <listTables name="Cultural">
+      <primaryKey columna="//@lstSchema.0/@listTables.10/@listColumns.0"/>
+      <listColumns type="int" name="id" is_not_null="true" auto_increment="true" is_unique="true"/>
+      <listColumns type="int" name="foreign_id_Credito" is_not_null="true" auto_increment="true" is_unique="true"/>
+    </listTables>
+    <listTables name="Deportivo">
+      <primaryKey columna="//@lstSchema.0/@listTables.11/@listColumns.0"/>
+      <listColumns type="int" name="id" is_not_null="true" auto_increment="true" is_unique="true"/>
+      <listColumns type="int" name="foreign_id_Credito" is_not_null="true" auto_increment="true" is_unique="true"/>
+    </listTables>
+    <listTables name="Horario">
+      <primaryKey columna="//@lstSchema.0/@listTables.12/@listColumns.3"/>
+      <listRelations nameSource="horarios" nameTarget="bienestar" multiplicidadSource="*" multiplicidadTarget="1" tableSource="//@lstSchema.0/@listTables.12" tableTarget="//@lstSchema.0/@listTables.0"/>
+      <listColumns name="dia"/>
+      <listColumns name="horaIni"/>
+      <listColumns name="horaFin"/>
+      <listColumns type="int" name="id" is_not_null="true" auto_increment="true" is_unique="true"/>
+      <listColumns type="int" name="bienestar_id" is_not_null="true" auto_increment="true" is_unique="true"/>
+    </listTables>
+    <listTables name="TestPrueba">
+      <primaryKey columna="//@lstSchema.0/@listTables.13/@listColumns.0"/>
+      <listRelations nameSource="testPrueba" nameTarget="claseTest2" multiplicidadSource="1" multiplicidadTarget="1" tableSource="//@lstSchema.0/@listTables.13" tableTarget="//@lstSchema.0/@listTables.8"/>
+      <listColumns type="int" name="id" is_not_null="true" auto_increment="true" is_unique="true"/>
+      <listColumns type="int" name="clasetest2_id" is_not_null="true" auto_increment="true" is_unique="true"/>
+    </listTables>
+  </lstSchema>
+</abstracta_relacional:ModelFactory>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ASCII"?>
+<abstracta:ModelFactory xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:abstracta="abstracta" nombre="Universidad" listaTodasClases="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.0 //@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.0 //@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.1 //@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.2 //@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.3 //@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.1 //@listaPaquetes.0/@listapaquetes.1/@listaClases.0 //@listaPaquetes.0/@listaClases.0 //@listaPaquetes.0/@listapaquetes.0/@listaClases.0 //@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.2 //@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.3 //@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.4 //@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.5 //@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listapaquetes.0/@listaClases.0" listaTodosPaquetes="//@listaPaquetes.0 //@listaPaquetes.0/@listapaquetes.0 //@listaPaquetes.0/@listapaquetes.1 //@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0 //@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1 //@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listapaquetes.0">
+  <listaPaquetes nombre="models" ruta="/">
+    <listaClases nombre="ClaseTest1" documentacion="" ruta="models/">
+      <listaRelaciones xsi:type="abstracta:TCDAsociacion" source="//@listaPaquetes.0/@listaClases.0" target="//@listaPaquetes.0/@listapaquetes.0/@listaClases.0" nombreOrigen="ClaseTest1" nombreDestino="listTest2" multiplicidadDestino="_0_n" navegavilidad="Unidireccional"/>
+    </listaClases>
+    <listapaquetes nombre="root" ruta="models/">
+      <listaClases nombre="ClaseTest2" ruta="models/root">
+        <listaRelaciones xsi:type="abstracta:TCDAsociacion" source="//@listaPaquetes.0/@listapaquetes.0/@listaClases.0" target="//@listaPaquetes.0/@listaClases.0" nombreOrigen="listTest2" nombreDestino="ClaseTest1" multiplicidadOrigen="_0_n" navegavilidad="None"/>
+        <listaRelaciones xsi:type="abstracta:TCDAsociacion" source="//@listaPaquetes.0/@listapaquetes.0/@listaClases.0" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listapaquetes.0/@listaClases.0" nombreOrigen="claseTest2" nombreDestino="testPrueba"/>
+      </listaClases>
+    </listapaquetes>
+    <listapaquetes nombre="universidad" ruta="models/">
+      <listaClases nombre="Lugar" ruta="models/universidad">
+        <listaAtributos nombre="nombre" valorDefecto=""/>
+        <listaRelaciones xsi:type="abstracta:TCDAgregacion" source="//@listaPaquetes.0/@listapaquetes.1/@listaClases.0" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.0" nombreOrigen="lugares" nombreDestino="bienestar" multiplicidadOrigen="_0_n"/>
+        <listaRelaciones xsi:type="abstracta:TCDAsociacion" source="//@listaPaquetes.0/@listapaquetes.1/@listaClases.0" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.0" nombreOrigen="lugares" nombreDestino="creditos" multiplicidadOrigen="_1_n" multiplicidadDestino="_0_n"/>
+      </listaClases>
+      <listapaquetes nombre="bienestar" ruta="models/universidad/">
+        <listaClases nombre="Bienestar" ruta="models/universidad/bienestar">
+          <listaAtributos nombre="codigo" valorDefecto=""/>
+          <listaMetodos nombre="registrarCred"/>
+          <listaMetodos nombre="registrarPer"/>
+          <listaRelaciones xsi:type="abstracta:TCDDependencia" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.0" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.0" nombreOrigen="bienestar" nombreDestino="creditos" multiplicidadDestino="_0_n" navegavilidad="Unidireccional"/>
+          <listaRelaciones xsi:type="abstracta:TCDAgregacion" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.0" target="//@listaPaquetes.0/@listapaquetes.1/@listaClases.0" nombreOrigen="bienestar" nombreDestino="lugares" multiplicidadDestino="_0_n"/>
+          <listaRelaciones xsi:type="abstracta:TCDDependencia" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.0" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.5" nombreOrigen="bienestar" nombreDestino="horarios" multiplicidadDestino="_0_n"/>
+          <listaRelaciones xsi:type="abstracta:TCDAgregacion" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.0" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.1" nombreOrigen="bienestar" nombreDestino="personas" multiplicidadDestino="_0_n" navegavilidad="Unidireccional"/>
+        </listaClases>
+        <listaClases nombre="Persona" isAbstract="true" ruta="models/universidad/bienestar">
+          <listaAtributos nombre="cedula" tipoDato="number"/>
+          <listaAtributos nombre="nombre" valorDefecto=""/>
+          <listaAtributos nombre="correo"/>
+          <listaRelaciones xsi:type="abstracta:TCDAgregacion" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.1" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.0" nombreOrigen="personas" nombreDestino="bienestar" multiplicidadOrigen="_0_n" navegavilidad="None"/>
+          <listaRelaciones xsi:type="abstracta:TCDHerencia" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.1" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.2"/>
+          <listaRelaciones xsi:type="abstracta:TCDHerencia" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.1" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.3"/>
+        </listaClases>
+        <listaClases nombre="Instructor" ruta="models/universidad/bienestar">
+          <listaAtributos nombre="salario" tipoDato="number"/>
+          <listaAtributos nombre="cargo"/>
+          <listaAtributos nombre="isActivo" tipoDato="boolean"/>
+          <listaRelaciones xsi:type="abstracta:TCDHerencia" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.1" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.2"/>
+          <listaRelaciones xsi:type="abstracta:TCDAsociacion" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.2" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.0" nombreOrigen="instructores" nombreDestino="creditos" multiplicidadOrigen="_1_n" multiplicidadDestino="_0_n"/>
+        </listaClases>
+        <listaClases nombre="Estudiante" ruta="models/universidad/bienestar">
+          <listaAtributos nombre="facultad"/>
+          <listaAtributos nombre="programa"/>
+          <listaMetodos nombre="registrarCre">
+            <listaParametros>codigo</listaParametros>
+            <listaParametros>fecha</listaParametros>
+          </listaMetodos>
+          <listaRelaciones xsi:type="abstracta:TCDHerencia" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.1" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.3"/>
+          <listaRelaciones xsi:type="abstracta:TCDAsociacion" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.3" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.1" nombreOrigen="estudiante" nombreDestino="asignaciones" multiplicidadDestino="_0_n"/>
+          <listaRelaciones xsi:type="abstracta:TCDAsociacion" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.3" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.5" nombreOrigen="estudiantes" nombreDestino="horarios" multiplicidadOrigen="_0_n" multiplicidadDestino="_0_n"/>
+        </listaClases>
+      </listapaquetes>
+      <listapaquetes nombre="credito" ruta="models/universidad/">
+        <listaClases nombre="Credito" isAbstract="true" ruta="models/universidad/credito">
+          <listaAtributos nombre="codigo" tipoDato="number"/>
+          <listaAtributos nombre="nombre"/>
+          <listaAtributos nombre="horario"/>
+          <listaMetodos nombre="EstReprobados"/>
+          <listaRelaciones xsi:type="abstracta:TCDDependencia" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.0" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.0" nombreOrigen="creditos" nombreDestino="bienestar" multiplicidadOrigen="_0_n" navegavilidad="None"/>
+          <listaRelaciones xsi:type="abstracta:TCDAsociacion" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.0" target="//@listaPaquetes.0/@listapaquetes.1/@listaClases.0" nombreOrigen="creditos" nombreDestino="lugares" multiplicidadOrigen="_0_n" multiplicidadDestino="_1_n"/>
+          <listaRelaciones xsi:type="abstracta:TCDHerencia" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.0" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.2"/>
+          <listaRelaciones xsi:type="abstracta:TCDHerencia" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.0" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.3"/>
+          <listaRelaciones xsi:type="abstracta:TCDHerencia" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.0" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.4"/>
+          <listaRelaciones xsi:type="abstracta:TCDAsociacion" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.0" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.5" nombreOrigen="creditos" nombreDestino="horarios" multiplicidadOrigen="_0_n" multiplicidadDestino="_1_n"/>
+          <listaRelaciones xsi:type="abstracta:TCDAsociacion" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.0" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.2" nombreOrigen="creditos" nombreDestino="instructores" multiplicidadOrigen="_0_n" multiplicidadDestino="_1_n"/>
+        </listaClases>
+        <listaClases nombre="AsigCreditoEst" ruta="models/universidad/credito">
+          <listaAtributos nombre="fechaAsig"/>
+          <listaAtributos nombre="estado" tipoDato="boolean"/>
+          <listaRelaciones xsi:type="abstracta:TCDAsociacion" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.1" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.5" nombreOrigen="asignaciones" nombreDestino="horario" multiplicidadOrigen="_0_n"/>
+          <listaRelaciones xsi:type="abstracta:TCDAsociacion" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.1" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.3" nombreOrigen="asignaciones" nombreDestino="estudiante" multiplicidadOrigen="_0_n"/>
+        </listaClases>
+        <listaClases nombre="Academico" ruta="models/universidad/credito">
+          <listaAtributos nombre="duracion"/>
+          <listaRelaciones xsi:type="abstracta:TCDHerencia" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.0" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.2"/>
+        </listaClases>
+        <listaClases nombre="Cultural" ruta="models/universidad/credito">
+          <listaRelaciones xsi:type="abstracta:TCDHerencia" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.0" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.3"/>
+        </listaClases>
+        <listaClases nombre="Deportivo" ruta="models/universidad/credito">
+          <listaRelaciones xsi:type="abstracta:TCDHerencia" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.0" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.4"/>
+        </listaClases>
+        <listaClases nombre="Horario" ruta="models/universidad/credito">
+          <listaAtributos nombre="dia"/>
+          <listaAtributos nombre="horaIni"/>
+          <listaAtributos nombre="horaFin"/>
+          <listaRelaciones xsi:type="abstracta:TCDDependencia" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.5" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.0" nombreOrigen="horarios" nombreDestino="bienestar" multiplicidadOrigen="_0_n"/>
+          <listaRelaciones xsi:type="abstracta:TCDAsociacion" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.5" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.0" nombreOrigen="horarios" nombreDestino="creditos" multiplicidadOrigen="_1_n" multiplicidadDestino="_0_n"/>
+          <listaRelaciones xsi:type="abstracta:TCDAsociacion" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.5" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.1" nombreOrigen="horario" nombreDestino="asignaciones" multiplicidadDestino="_0_n"/>
+          <listaRelaciones xsi:type="abstracta:TCDAsociacion" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listaClases.5" target="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.0/@listaClases.3" nombreOrigen="horarios" nombreDestino="estudiantes" multiplicidadOrigen="_0_n" multiplicidadDestino="_0_n"/>
+        </listaClases>
+        <listapaquetes nombre="prueba" ruta="models/universidad/credito/">
+          <listaClases nombre="TestPrueba" ruta="models/universidad/credito/prueba">
+            <listaRelaciones xsi:type="abstracta:TCDAsociacion" source="//@listaPaquetes.0/@listapaquetes.1/@listapaquetes.1/@listapaquetes.0/@listaClases.0" target="//@listaPaquetes.0/@listapaquetes.0/@listaClases.0" nombreOrigen="testPrueba" nombreDestino="claseTest2"/>
+          </listaClases>
+        </listapaquetes>
+      </listapaquetes>
+    </listapaquetes>
+  </listaPaquetes>
+</abstracta:ModelFactory>
